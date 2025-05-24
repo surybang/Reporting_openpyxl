@@ -22,3 +22,15 @@ uv venv
 source .venv/bin/activate (sur linux/macOS)
 ./.venv/Scripts/activate (sur Windows)
 ```
+
+### III. Lancez populate.py 
+
+Avec uv :
+```bash
+uv run populate.py
+```
+
+Avec python :
+```bash
+python populate.py
+```
