@@ -3,16 +3,16 @@ import numpy as np
 
 # 1) Paramètres
 np.random.seed(42)
-n_clients    = 25000
-cutoff_prev  = pd.Timestamp("2025-01-01")   # date de coupure pour la période précédente
+n_clients = 25000
+cutoff_prev = pd.Timestamp("2025-01-01")   # date de coupure pour la période précédente
 
 # 2) Type de client et DRC
-type_clients  = np.random.choice(["PP", "PM"], n_clients)
-drc_complets  = np.random.choice([True, False], n_clients, p=[0.8, 0.2])
+type_clients = np.random.choice(["PP", "PM"], n_clients)
+drc_complets = np.random.choice([True, False], n_clients, p=[0.8, 0.2])
 
 # 3) Date d'adhésion entre 1980 et avril 2025
 ts_start = pd.Timestamp("1980-01-01").value // 10**9
-ts_end   = pd.Timestamp("2025-04-30").value // 10**9
+ts_end = pd.Timestamp("2025-04-30").value // 10**9
 date_adhesion = pd.to_datetime(
     np.random.randint(ts_start, ts_end, size=n_clients),
     unit="s"
@@ -20,7 +20,7 @@ date_adhesion = pd.to_datetime(
 
 # 4) Score courant
 scores = np.random.choice(
-    ["V", "O", "R", None],
+    ["V", "O", "R", "Z"],
     size=n_clients,
     p=[0.7, 0.2, 0.05, 0.05]
 )
@@ -37,12 +37,13 @@ id_agent[mask_r] = np.random.choice(agents_pool, mask_r.sum())
 is_new = date_adhesion >= cutoff_prev
 
 # 7) Génération du score de la période précédente
-#    - None si nouveau
+#    - "Z" si nouveau
 #    - Sinon tirage selon distribution réaliste
-score_prev = np.full(n_clients, None, dtype=object)
-p_prev = [0.6, 0.20, 0.15, 0.05]  # V, O, R, None
-choices = ["V", "O", "R", None]
-mask_old = ~is_new
+score_prev = np.full(n_clients, "Z", dtype=object)  # Valeur par défaut : "Z"
+p_prev = [0.6, 0.20, 0.15, 0.05]
+choices = ["V", "O", "R", "Z"]
+
+mask_old = ~is_new  # les anciens clients
 score_prev[mask_old] = np.random.choice(choices, mask_old.sum(), p=p_prev)
 
 # 8) Assemblage du DataFrame
@@ -57,7 +58,10 @@ df = pd.DataFrame({
 })
 
 # 9) Sauvegarde
-df.to_csv("data.csv", index=False)
+df.to_csv("create_data/csv/data.csv", index=False)
 
 # 10) Aperçu rapide
 print(df.sample(5))
+
+# 11) test
+print(df.isna().sum())
