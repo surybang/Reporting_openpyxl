@@ -2,6 +2,7 @@ import sys
 import os
 
 from loguru import logger
+import pandas as pd
 
 from DAL import S3Storage
 
@@ -30,6 +31,13 @@ def main():
         logger.success(f"Fichier téléchargé avec succès : {local_path}")
     except RuntimeError as e:
         logger.error(f"Erreur lors du téléchargement : {e}")
+
+    logger.info(f"Création du DataFrame à partir du fichier {local_path}")
+    try:
+        df = pd.read_parquet(local_path)
+        logger.success(f"DataFrame généré avec succès : {df.columns.tolist()}")
+    except FileNotFoundError as e:
+        logger.error(f"Erreur lors de la création du DataFrame: {e}")
 
 
 if __name__ == "__main__":
