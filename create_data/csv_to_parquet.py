@@ -109,7 +109,7 @@ def prepare_data_for_parquet(df: pd.DataFrame) -> pa.Table:
     df["score_prev"] = df["score_prev"].astype(str)
     df["id_agent"] = df["id_agent"].astype(str)
     df["drc_complet"] = df["drc_complet"].astype(bool)
-    
+
     # Validation
     validate_schema(df, schema)
 
