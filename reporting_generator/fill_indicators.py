@@ -36,6 +36,7 @@ def fill_indicators(path_file: str, data_sheet: str = 'DATA') -> None:
         {'row': 15, 'formule': 'COUNTIFS', 'args': [('B', 'PP'), ('D', 'O')]},
         {'row': 16, 'formule': 'COUNTIFS', 'args': [('B', 'PP'), ('D', 'R')]},
         {'row': 17, 'formule': 'CALCUL', 'args': 'E10 - (E14+E15+E16)'},
+        {'row': 18, 'formule': 'SUM', 'args': ['E14+E15+E16']},
 
         # DRC Complet
         {'row': 22, 'formule': 'COUNTIFS', 'args': [('B', 'PP'), ('G', "VRAI")]},
@@ -57,7 +58,7 @@ def fill_indicators(path_file: str, data_sheet: str = 'DATA') -> None:
         {'row': 36, 'formule': 'SUM', 'args': ['E34:E35']},
         {'row': 37, 'formule': 'COUNTIFS', 'args': [('B', 'PP'), ('D', 'O'), ('G', 'VRAI')]},
         {'row': 38, 'formule': 'COUNTIFS', 'args': [('B', 'PM'), ('D', 'O'), ('G', 'VRAI')]},
-        {'row': 39, 'formule': 'SUM', 'args': ['E38:E39']},
+        {'row': 39, 'formule': 'SUM', 'args': ['E37:E38']},
 
         # Focus sur les R
         {'row': 43, 'formule': 'COUNTIFS', 'args': [('B', 'PP'), ('D', 'R')]},
@@ -99,8 +100,3 @@ def fill_indicators(path_file: str, data_sheet: str = 'DATA') -> None:
 
     wb.save(path_file)
     wb.close()
-
-
-if __name__ == "main":
-    path_file = 'example/fichier_a_remplir.xlsx'
-    fill_indicators(path_file)
