@@ -8,9 +8,9 @@ def is_transient_error(e):
 
 
 class S3Storage:
-    def __init__(self, bucket: str, endpoint_url: str = None):
+    def __init__(self, bucket: str):
         self.bucket = bucket
-        self.s3 = boto3.client("s3", endpoint_url=endpoint_url)
+        self.s3 = boto3.client("s3")
 
     @retry(
         stop=stop_after_attempt(3),
