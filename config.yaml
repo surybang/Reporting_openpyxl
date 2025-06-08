@@ -1,0 +1,11 @@
+s3:
+  bucket: fabienhos
+
+paths:
+  remote:
+    data: /Tuto_reporting/data.parquet
+    reporting: /Tuto_reporting/reporting.xlsx
+    template: /Tuto_reporting/fichier_a_remplir.xlsx
+  local:
+    data: data/data.parquet
+    template: example/fichier_a_remplir.xls
