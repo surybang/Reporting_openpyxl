@@ -8,4 +8,4 @@ paths:
     template: /Tuto_reporting/fichier_a_remplir.xlsx
   local:
     data: data/data.parquet
-    template: example/fichier_a_remplir.xls
+    template: example/fichier_a_remplir.xlsx
