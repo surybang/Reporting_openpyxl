@@ -27,3 +27,8 @@ jobs:
       - name: 🧪 Lancer les tests unitaires
         run: |
           uv run pytest
+      
+      - name: ✅ Vérifier le code avec pylint
+        run: |
+          pip install pylint
+          pylint **/*.py --fail-under=5
