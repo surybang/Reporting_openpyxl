@@ -1,7 +1,7 @@
 from loguru import logger
 import pandas as pd
 
-from DAL import S3Storage
+from dal import S3Storage
 from reporting_generator.insert_data import write_data_to_excel
 from reporting_generator.fill_indicators import fill_indicators
 
