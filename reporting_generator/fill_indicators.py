@@ -12,17 +12,17 @@ def fill_indicators(path_file: str, data_sheet: str = 'DATA') -> None:
     wb = load_workbook(path_file)
     ws = wb['Indicateurs']
 
-    def formula_COUNTIF(col, val):
+    def formula_countif(col, val):
         return f'=COUNTIF({data_sheet}!{col}:{col}, "{val}")'
 
-    def formula_COUNTIFS(pairs):
+    def formula_countifs(pairs):
         conditions = ', '.join(f'{data_sheet}!{col}:{col}, "{val}"' for col, val in pairs)
         return f'=COUNTIFS({conditions})'
 
-    def formula_SUM(range_str):
+    def formula_sum(range_str):
         return f'=SUM({range_str})'
 
-    def formula_CALCUL(expr):
+    def formula_calcul(expr):
         return f'={expr}'
 
     config = [
@@ -88,13 +88,13 @@ def fill_indicators(path_file: str, data_sheet: str = 'DATA') -> None:
         args = item['args']
 
         if formule == 'COUNTIF':
-            ws[cell] = formula_COUNTIF(*args[0])
+            ws[cell] = formula_countif(*args[0])
         elif formule == 'COUNTIFS':
-            ws[cell] = formula_COUNTIFS(args)
+            ws[cell] = formula_countifs(args)
         elif formule == 'SUM':
-            ws[cell] = formula_SUM(args[0])
+            ws[cell] = formula_sum(args[0])
         elif formule == 'CALCUL':
-            ws[cell] = formula_CALCUL(args)
+            ws[cell] = formula_calcul(args)
         else:
             raise ValueError(f"Unknown formula : {formule}")
 
