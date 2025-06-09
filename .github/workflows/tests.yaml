@@ -27,11 +27,3 @@ jobs:
       - name: 🧪 Lancer les tests unitaires
         run: |
           uv run pytest
-
-      - name: 📤 Sauvegarder le log
-        if: always()  # Même si une étape précédente échoue
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-log
-          path: |
-            logs/titanic.log
