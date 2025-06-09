@@ -1,0 +1,43 @@
+name: Reporting_openpyxl
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  app:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📦 Cloner le dépôt
+        uses: actions/checkout@v4
+      
+      - name: 🛠 Installer uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: 🐍 Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 📜 Installer les dépendances
+        run: uv sync
+
+      - name: ✅ Vérifier le code avec pylint
+        run: |
+          pip install pylint
+          pylint **/*.py --fail-under=5
+
+      - name: 🧪 Lancer les tests unitaires
+        run: |
+          pip install pytest
+          pytest tests/
+
+      - name: 📤 Sauvegarder le log
+        if: always()  # Même si une étape précédente échoue
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-log
+          path: |
+            logs/titanic.log
