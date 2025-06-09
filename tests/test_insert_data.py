@@ -1,7 +1,7 @@
 import pandas as pd
 from openpyxl import load_workbook
 
-from reporting_generator.insert_data import write_data_to_excel
+from reporting_generator import write_data_to_excel
 
 
 def test_write_data_to_excel(tmp_path):

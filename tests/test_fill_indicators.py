@@ -2,7 +2,7 @@ import pytest
 
 from openpyxl import Workbook, load_workbook
 
-from reporting_generator.fill_indicators import fill_indicators
+from reporting_generator import fill_indicators
 
 
 @pytest.fixture

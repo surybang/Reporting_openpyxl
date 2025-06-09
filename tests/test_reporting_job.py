@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import MagicMock, patch
-from reporting_generator.reporting_job import ReportingJob
+from reporting_generator import ReportingJob
 
 
 @pytest.fixture
