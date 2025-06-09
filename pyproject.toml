@@ -24,7 +24,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["DAL"]
+packages = ["DAL", "reporting_generator"]
 
 [dependency-groups]
 dev = [
