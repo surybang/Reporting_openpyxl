@@ -36,16 +36,16 @@ USER appuser
 # Copier les fichiers de dépendances en premier (pour optimiser le cache Docker)
 COPY --chown=appuser:appuser pyproject.toml uv.lock* ./
 
-# Installer les dépendances avec uv
-RUN uv sync --frozen --no-dev
-
 # Copier le reste du code source
 COPY --chown=appuser:appuser . .
 
-# Créer les répertoires nécessaires
-RUN mkdir -p logs data output
+# Installer les dépendances avec uv
+RUN uv sync --frozen --no-dev
 
-# Exposer le port si nécessaire (ajustez selon votre application)
+# Créer les répertoires nécessaires
+RUN mkdir -p example data
+
+# Exposer le port si nécessaire
 EXPOSE 8000
 
 # Vérification de santé
