@@ -1,3 +1,5 @@
+![CI Status](https://github.com/surybang/Reporting_openpyxl/actions/workflows/tests.yaml/badge.svg)
+
 ### I. Comment récupérer le code 
 ```bash
 git clone https://github.com/surybang/Reporting_openpyxl.git
