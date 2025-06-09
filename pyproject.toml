@@ -26,6 +26,12 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools]
 packages = ["DAL", "reporting_generator"]
 
+[tool.ruff]
+exclude = [
+    "*.ipynb",
+    ".venv",
+]
+
 [dependency-groups]
 dev = [
     "pylint>=3.3.7",
