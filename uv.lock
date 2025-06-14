@@ -533,6 +533,7 @@ dependencies = [
     { name = "pyarrow" },
     { name = "pyyaml" },
     { name = "seaborn" },
+    { name = "st-pages" },
     { name = "streamlit" },
     { name = "tenacity" },
 ]
@@ -558,6 +559,7 @@ requires-dist = [
     { name = "pyarrow", specifier = ">=20.0.0" },
     { name = "pyyaml", specifier = ">=6.0.2" },
     { name = "seaborn", specifier = ">=0.13.2" },
+    { name = "st-pages", specifier = ">=1.0.1" },
     { name = "streamlit", specifier = ">=1.45.1" },
     { name = "tenacity", specifier = ">=9.1.2" },
 ]
@@ -1908,6 +1910,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/44/cd/a040c4b3119bbe532e5b0732286f805445375489fceaec1f48306068ee3b/smmap-5.0.2.tar.gz", hash = "sha256:26ea65a03958fa0c8a1c7e8c7a58fdc77221b8910f6be2131affade476898ad5", size = 22329, upload-time = "2025-01-02T07:14:40.909Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/04/be/d09147ad1ec7934636ad912901c5fd7667e1c858e19d355237db0d0cd5e4/smmap-5.0.2-py3-none-any.whl", hash = "sha256:b30115f0def7d7531d22a0fb6502488d879e75b260a9db4d0819cfb25403af5e", size = 24303, upload-time = "2025-01-02T07:14:38.724Z" },
+]
+
+[[package]]
+name = "st-pages"
+version = "1.0.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "streamlit" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/83/60/f9516698fc3952bba1d1b6c1cb0795aa82dac12473f5fb678066532268e0/st_pages-1.0.1.tar.gz", hash = "sha256:2641cfbff1c768ff146858ed742d282b30a3a4c3e4f7717898705bbaee717736", size = 21341, upload-time = "2024-08-08T19:58:58.378Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a7/04/77c5f0cdc21deb6eadd77bdbf88157632178865e71adffed728fa9e5b48b/st_pages-1.0.1-py3-none-any.whl", hash = "sha256:9098fb4d96bc1dfa56cc2c56ef6fe44e607c69261ff4bceee1f6e9c1e0c2acb4", size = 20099, upload-time = "2024-08-08T19:58:56.991Z" },
 ]
 
 [[package]]
