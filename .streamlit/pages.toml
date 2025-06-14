@@ -1,0 +1,14 @@
+[[pages]]
+path = "pages/quality.py"
+name = "Qualité des données"
+icon = "🧹"
+
+[[pages]]
+path = "pages/analysis.py"
+name = "Analyse des clients"
+icon = "📊"
+
+[[pages]]
+path = "pages/exploration.py"
+name = "Exploration interactive"
+icon = "🔎"
